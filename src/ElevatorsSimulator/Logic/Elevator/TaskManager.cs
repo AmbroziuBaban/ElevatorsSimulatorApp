@@ -66,10 +66,9 @@ public class TaskManager : ITaskManager
 
         if (optimalElevatorCostChange == null)
         {
-            var resonse = "No optimal elevator found.";
-            _logger.LogInformation(resonse);
+            _logger.LogInformation(StringConstants.ERROR_NO_OPTIMAL_ELEVATOR);
 
-            return resonse;
+            return StringConstants.ERROR_NO_OPTIMAL_ELEVATOR;;
         }
 
         // Step 3. Add the movement        
@@ -77,10 +76,9 @@ public class TaskManager : ITaskManager
         {
             if (movements == null)
             {
-                var resonse = "No movement was found.";
-                _logger.LogInformation(resonse);
+                _logger.LogInformation(StringConstants.ERROR_NO_MOVEMENT);
 
-                return resonse;
+                return StringConstants.ERROR_NO_MOVEMENT;
             }
             // Add last
             if (movements.Count - 1 < optimalElevatorCostChange.MovementStartIndex)

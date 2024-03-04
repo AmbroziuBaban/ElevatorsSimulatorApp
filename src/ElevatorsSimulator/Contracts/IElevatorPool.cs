@@ -7,5 +7,4 @@ public interface IElevatorPool
     public void AddElevator(int loadLimit);
     public int GetElevatorLimit();
     public string[] GetElevatorInfo();
-
 }

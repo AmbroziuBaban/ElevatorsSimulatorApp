@@ -25,7 +25,7 @@ public class MovementCostAnalyzer : IMovementCostAnalyzer
         MovementCostAnalysisResult result = new MovementCostAnalysisResult();
         if (_elevator == null)
         {
-            throw new Exception("Elevator is not setup for analysis.");
+            throw new Exception(StringConstants.ERROR_NO_ELEVATOR_FOR_ANALYSIS);
         }
         result.ElevatorId = _elevator.Id;
 
@@ -100,7 +100,7 @@ public class MovementCostAnalyzer : IMovementCostAnalyzer
         }
         if (_elevator == null)
         {
-            throw new Exception("Elevator is not setup for analysis.");
+            throw new Exception(StringConstants.ERROR_NO_ELEVATOR_FOR_ANALYSIS);
         }
 
         Movement currentMovement = _movements.ElementAt(index);

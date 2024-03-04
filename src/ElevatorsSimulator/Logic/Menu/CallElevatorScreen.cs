@@ -31,7 +31,8 @@ public class CallElevatorScreen : MenuScreen
 
                 if (_requestLoad != null)
                 {
-                    text += $"{_requestLoad}\nAre you sure you want to call the elevator? \ny/n";
+                    text += $"{_requestLoad}\nAre you sure you want to call the elevator?";
+                    text += $"\n{StringConstants.AFFIRMATIVE_COMMAND}/{StringConstants.NEGATIVE_COMMAND}";
                 }
             }
         }
@@ -47,7 +48,7 @@ public class CallElevatorScreen : MenuScreen
         {
             if (!_menuItems.TryGetValue(StringConstants.ITEM_KEY_BACK_ELEVATOR_REQUEST, out var menuItem))
             {
-                response = "Invalid back command.";
+                response = StringConstants.ERROR_INVALID_INPUT_COMMAND;
             }
             else
             {
@@ -70,7 +71,7 @@ public class CallElevatorScreen : MenuScreen
         }
         else
         {
-            if (command == "y")
+            if (command == StringConstants.AFFIRMATIVE_COMMAND)
             {
                 ElevatorRequest request = new ElevatorRequest(_requestSourceFloor.Value, _requestDestinationFloor.Value, _requestLoad.Value);
 
@@ -91,7 +92,7 @@ public class CallElevatorScreen : MenuScreen
         if (input == null || !Int32.TryParse(input, out int inputValue))
         {
             ResetRequest();
-            throw new Exception("Invalid input value.");
+            throw new Exception(StringConstants.ERROR_INVALID_INPUT);
         }
 
         return inputValue;

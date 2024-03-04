@@ -1,3 +1,4 @@
+using ElevatorsSimulator.Common;
 using ElevatorsSimulator.Contracts;
 using ElevatorsSimulator.Models;
 
@@ -26,11 +27,11 @@ public class Orchestrator : IOrchestrator
 
         if (request.SourceFloor > NumberOfFloors - 1 || request.DestinationFloor > NumberOfFloors - 1)
         {
-            response = "Invalid input. The value of the floor value is not valid.";
+            response = $"{StringConstants.ERROR_INVALID_INPUT} {StringConstants.ERROR_INVALID_FLOOR_VALUE}";
         }
         else if (request.Load < 0)
         {
-            response = "Invalid input. The value of the floor value is not valid.";
+            response = $"{StringConstants.ERROR_INVALID_INPUT} {StringConstants.ERROR_INVALID_LOAD_VALUE}";
         }
         else
         {
@@ -48,7 +49,7 @@ public class Orchestrator : IOrchestrator
             }
 
             var resultElevators = requests.Select(r => _taskManager.RegisterRequest(r)).ToList();
-            response = resultElevators.Count > 0 ? string.Join(" & ", resultElevators) : "No available elevator was found.";
+            response = resultElevators.Count > 0 ? string.Join(" & ", resultElevators) : StringConstants.ERROR_NO_OPTIMAL_ELEVATOR;
         }
 
         return response;

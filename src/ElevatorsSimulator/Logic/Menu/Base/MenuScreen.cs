@@ -1,3 +1,4 @@
+using ElevatorsSimulator.Common;
 using ElevatorsSimulator.Contracts;
 using ElevatorsSimulator.Models;
 
@@ -35,11 +36,10 @@ public abstract class MenuScreen : IMenuScreen
 
     public virtual string TryExecuteCommand(string command)
     {
-
         var selectedMenuItemToExecute = _menuItems.GetValueOrDefault(command);
         if (selectedMenuItemToExecute == null)
         {
-            return "Invalid command.";
+            return $"{StringConstants.ERROR_INVALID_INPUT_COMMAND}";
         }
 
         return selectedMenuItemToExecute.Command.Invoke(string.Empty);

@@ -10,7 +10,6 @@ public class Movement
 
     public Movement()
     {
-
     }
 
     public Movement(int sourceFloor, int destinationFloor, int load, Direction direction)

@@ -30,14 +30,15 @@ public class ElevatorPool : IElevatorPool
 
     public string[] GetElevatorInfo()
     {
-        return _elevators.Select(ev => $"{ev.Id} - {ev.ElevatorStatus.CurrentFloor} {DirectionExtensions.ToString(ev.ElevatorStatus.Direction)}").ToArray();
+        return _elevators.Select(e => $"{e.Id} - {e.ElevatorStatus.CurrentFloor} {DirectionExtensions.ToString(e.ElevatorStatus.Direction)}")
+            .ToArray();
     }
 
     public int GetElevatorLimit()
     {
         if (_elevators.Count == 0)
         {
-            throw new Exception("No elevators available.");
+            throw new Exception(StringConstants.ERROR_NO_ELEVATORS);
         }
 
         return _elevators.First().LoadLimit;
@@ -45,7 +46,7 @@ public class ElevatorPool : IElevatorPool
 
     private string GetElevatorId(int count)
     {
-        string chars = "";
+        string chars = string.Empty;
         if (count / 26 > 0)
         {
             chars = GetElevatorId(count / 26);

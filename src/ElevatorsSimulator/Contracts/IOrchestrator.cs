@@ -7,6 +7,5 @@ public interface IOrchestrator
     public void AddElevator(int loadLimit);
     public string AddRequest(ElevatorRequest request);
     public string[] GetElevatorsStatus();
-
     public void ExecuteStep();
 }

@@ -1,3 +1,4 @@
+using ElevatorsSimulator.Common;
 using ElevatorsSimulator.Contracts;
 
 namespace ElevatorsSimulator.Logic;
@@ -25,7 +26,7 @@ public class Menu : IMenu
         string commandResponse = string.Empty;
         if (command == null)
         {
-            commandResponse = "Invalid command.";
+            commandResponse = StringConstants.ERROR_INVALID_INPUT_COMMAND;
         }
         else
         {
@@ -40,7 +41,7 @@ public class Menu : IMenu
         var screenIndex = _menuScreens.FindIndex(screen => screen.Title == screenTitle);
         if (screenIndex < 0)
         {
-            Console.WriteLine("No screen that match the description found.");
+            Console.WriteLine(StringConstants.ERROR_NO_SCREEN);
             return;
         }
 

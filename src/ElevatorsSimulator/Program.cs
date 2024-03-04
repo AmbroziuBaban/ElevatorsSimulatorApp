@@ -1,5 +1,4 @@
-﻿// See https://aka.ms/new-console-template for more information
-using ElevatorsSimulator;
+﻿using ElevatorsSimulator;
 using ElevatorsSimulator.Logic;
 using ElevatorsSimulator.Contracts;
 using Microsoft.Extensions.DependencyInjection;

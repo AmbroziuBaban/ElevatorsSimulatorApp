@@ -7,15 +7,15 @@ public static class DirectionExtensions
         {
             case Direction.Up:
                 {
-                    return "UP";
+                    return StringConstants.DIRECTION_UP_INDICATOR;
                 }
             case Direction.Down:
                 {
-                    return "DOWN";
+                    return StringConstants.DIRECTION_DOWN_INDICATOR;
                 }
             default:
                 {
-                    return string.Empty;
+                    return StringConstants.DIRECTION_NONE_INDICATOR;
                 }
         }
     }
